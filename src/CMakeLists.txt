@@ -18,8 +18,6 @@ add_library(injector SHARED
 
 target_precompile_headers(injector PRIVATE pch.h)
 
-target_compile_definitions(injector PRIVATE _DEBUG)
-
 target_include_directories(injector PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(injector PRIVATE
