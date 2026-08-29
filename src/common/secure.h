@@ -1,5 +1,6 @@
 #pragma once
 #include "ztl/ztl.h"
+#include <cassert>
 #include <cstdlib>
 #include <cstdint>
 
