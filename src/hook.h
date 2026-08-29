@@ -2,7 +2,7 @@
 #include "debug.h"
 #include <cstdint>
 
-#ifdef _DEBUG
+#ifdef KINOKO_DEBUG
 #define ATTACH_HOOK(TARGET, DETOUR) \
     AttachHook(reinterpret_cast<void**>(&TARGET), CastHook(&DETOUR)) ? true : (ErrorMessage("Failed to attach detour function \"%s\" at target address : 0x%08X.", #DETOUR, TARGET), false)
 #else

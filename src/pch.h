@@ -1,6 +1,6 @@
 #pragma once
 
-#define _DEBUG
+#define KINOKO_DEBUG
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <timeapi.h>

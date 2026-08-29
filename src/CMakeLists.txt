@@ -46,6 +46,7 @@ set_target_properties(launcher PROPERTIES
 )
 
 target_link_libraries(launcher PRIVATE
+        Pathcch.lib
         Detours
 )
 

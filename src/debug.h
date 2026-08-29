@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef _DEBUG
+#ifdef KINOKO_DEBUG
 #define DEBUG_MESSAGE(FORMAT, ...) DebugMessage(FORMAT, __VA_ARGS__)
 #else
 #define DEBUG_MESSAGE(FORMAT, ...)
