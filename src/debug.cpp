@@ -8,8 +8,6 @@ static void WriteToLogFile(const char* pszMessage) {
     wchar_t sPath[MAX_PATH];
     GetModuleFileNameW(nullptr, sPath, MAX_PATH);
     PathCchRemoveFileSpec(sPath, MAX_PATH);
-    PathCchAppend(sPath, MAX_PATH, L"log");
-    CreateDirectoryW(sPath, nullptr);
 
     time_t now = time(nullptr);
     struct tm localtime;
