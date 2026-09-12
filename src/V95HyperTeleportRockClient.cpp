@@ -324,7 +324,7 @@ void __fastcall HookWorldMapMouseButton(void* self, void*, unsigned int message,
 {
     if (message == WmLButtonDown || message == WmLButtonUp || message == WmLButtonDoubleClick) {
         int targetMapId = 0;
-        if (TryResolveWorldMapTarget(self, x, y, targetMapId) && HasHyperTeleportRock()) {
+        if (TryResolveWorldMapTarget(self, x, y, targetMapId)) {
             SendWorldMapTransfer(targetMapId);
             return;
         }
