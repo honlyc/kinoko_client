@@ -14,9 +14,14 @@ add_library(injector SHARED
         itemicon.cpp
         walker.cpp
         debug.cpp
+        V95HyperTeleportRockClient.cpp
 )
 
 target_precompile_headers(injector PRIVATE pch.h)
+
+set_source_files_properties(V95HyperTeleportRockClient.cpp
+        PROPERTIES SKIP_PRECOMPILE_HEADERS ON
+)
 
 target_include_directories(injector PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 

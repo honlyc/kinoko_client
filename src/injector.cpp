@@ -4,6 +4,9 @@
 
 extern "C" __declspec(dllexport) VOID DummyExport() {}
 
+void InitHyperTeleportRock(HMODULE module);
+void ShutdownHyperTeleportRock();
+
 char* g_sServerAddress = nullptr;
 long g_nServerPort = 0;
 
@@ -23,8 +26,10 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
         DisableThreadLibraryCalls(hinstDLL);
         ProcessCommandLine();
         AttachSystemHooks();
+        InitHyperTeleportRock(hinstDLL);
         break;
     case DLL_PROCESS_DETACH:
+        ShutdownHyperTeleportRock();
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
         break;
