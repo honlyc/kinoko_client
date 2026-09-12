@@ -170,6 +170,9 @@ void AttachClientHelper() {
     Patch4(0x00C614C0, 110);
     Patch4(0x00C614C4, 89);
 
+    //装备和技能中文换行
+    PatchNop(0x00890777, 0x0089078B);
+
     // CChatHelper::TryChat
     Patch1(0x004AA7EF, 0xEB); // bypass chat cooldown
     Patch1(0x004AA74A, 0xEB); // bypass chat repeat
