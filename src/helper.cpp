@@ -173,6 +173,12 @@ void AttachClientHelper() {
     //装备和技能中文换行
     PatchNop(0x00890777, 0x0089078B);
 
+    // font size (default 0x0B = 11) 0x0C（12）、0x0E（14）
+    const uint8_t uFontSize = 0x0E;
+    Patch1(0x00885242 + 1, uFontSize);
+    Patch1(0x008852D3 + 1, uFontSize);
+    Patch1(0x0088538C + 1, uFontSize);
+
     // CChatHelper::TryChat
     Patch1(0x004AA7EF, 0xEB); // bypass chat cooldown
     Patch1(0x004AA74A, 0xEB); // bypass chat repeat
