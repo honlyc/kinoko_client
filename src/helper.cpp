@@ -103,27 +103,27 @@ const char* get_attack_speed_string(int32_t nAttackSpeed) {
     case 0:
     case 1:
         // return " FASTEST";
-        return " æœ€å¿«";
+        return " ×î¿ì";
     case 2:
     case 3:
         // return " FASTER";
-        return " è¾ƒå¿«";
+        return " ½Ï¿ì";
     case 4:
     case 5:
         // return " FAST";
-        return " å¿«";
+        return " ¿ì";
     case 6:
-        return " æ™®é€š";
+        return " ÆÕÍ¨";
     case 7:
     case 8:
         // return " SLOW";
-        return " æ…¢";
+        return " Âı";
     case 9:
     case 10:
-        return " è¾ƒæ…¢";
+        return " ½ÏÂı";
     case 11:
     case 12:
-        return " æœ€æ…¢";
+        return " ×îÂı";
     default:
         return "";
     }
@@ -174,15 +174,15 @@ void AttachClientHelper() {
     Patch4(0x00C614C0, 110);
     Patch4(0x00C614C4, 89);
 
-    //è£…å¤‡å’ŒæŠ€èƒ½ä¸­æ–‡æ¢è¡Œ
+    //×°±¸ºÍ¼¼ÄÜÖĞÎÄ»»ĞĞ
     PatchNop(0x00890777, 0x0089078B);
 
-    // font size (default 0x0B = 11) 0x0Cï¼ˆ12ï¼‰ã€0x0Eï¼ˆ14ï¼‰
+    // font size (default 0x0B = 11) 0x0C£¨12£©¡¢0x0E£¨14£©
     const uint8_t uFontSize = 0x0C;
-    Patch1(0x00885243, 0x0C); // è£…å¤‡å±æ€§å°é¢˜å­—å·
-    Patch1(0x008852D4, 0x0C); // è£…å¤‡å±æ€§æ˜ç»†å­—å·
-    Patch1(0x0088538D, 0x0C); // è£…å¤‡å±æ€§æ•°å€¼å­—å·
-    Patch1(0x0089F3A4, 0x05); // è£…å¤‡å±æ€§å°é¢˜æ©™ç‚¹å±…ä¸­
+    Patch1(0x00885243, 0x0C); // ×°±¸ÊôĞÔĞ¡Ìâ×ÖºÅ
+    Patch1(0x008852D4, 0x0C); // ×°±¸ÊôĞÔÃ÷Ï¸×ÖºÅ
+    Patch1(0x0088538D, 0x0C); // ×°±¸ÊôĞÔÊıÖµ×ÖºÅ
+    Patch1(0x0089F3A4, 0x05); // ×°±¸ÊôĞÔĞ¡Ìâ³Èµã¾ÓÖĞ
 
     // CChatHelper::TryChat
     Patch1(0x004AA7EF, 0xEB); // bypass chat cooldown

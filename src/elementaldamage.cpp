@@ -74,16 +74,16 @@ void __fastcall CUIToolTip__SetToolTip_Equip_Basic_hook(CUIToolTip* pThis, void*
     if (!pEquipItem) {
         return;
     }
-    PrintElementDamage(pThis, "æ¯’å±æ€§ä¼¤å®³ :", pEquipItem->nirPoison);   // incRMAS
-    PrintElementDamage(pThis, "å†°å±æ€§ä¼¤å®³ :", pEquipItem->nirIce);         // incRMAI
-    PrintElementDamage(pThis, "ç«å±æ€§ä¼¤å®³ :", pEquipItem->nirFire);       // incRMAF
-    PrintElementDamage(pThis, "é›·å±æ€§ä¼¤å®³ :", pEquipItem->nirLight); // incRMAL
-    PrintElementDamage(pThis, "åœ£å±æ€§ä¼¤å®³ :", pEquipItem->nirHoly);       // incRMAH
+    PrintElementDamage(pThis, "¶¾ÊôĞÔÉËº¦ :", pEquipItem->nirPoison);   // incRMAS
+    PrintElementDamage(pThis, "±ùÊôĞÔÉËº¦ :", pEquipItem->nirIce);         // incRMAI
+    PrintElementDamage(pThis, "»ğÊôĞÔÉËº¦ :", pEquipItem->nirFire);       // incRMAF
+    PrintElementDamage(pThis, "À×ÊôĞÔÉËº¦ :", pEquipItem->nirLight); // incRMAL
+    PrintElementDamage(pThis, "Ê¥ÊôĞÔÉËº¦ :", pEquipItem->nirHoly);       // incRMAH
 
     // Skip printing nRUC in original code with Patch1(0x008A13DB, 0xEB);
     uint8_t nRUC = pEquipItem->nRUC.Fuse();
     if (nRUC && (pEquipItem->nEnchantCategory & 2) == 0) {
-        ZXString<char> sRUC("å¯å‡çº§æ¬¡æ•° :");
+        ZXString<char> sRUC("¿ÉÉı¼¶´ÎÊı :");
 
         // Remaining upgrade count - we can't cast to ZtlSecure<unsigned char>* here because GW_ItemSlotBase is packed to 1 byte alignment
         nRUC = ZtlSecureFuse<unsigned char>(
