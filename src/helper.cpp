@@ -102,24 +102,28 @@ const char* get_attack_speed_string(int32_t nAttackSpeed) {
     switch (nAttackSpeed) {
     case 0:
     case 1:
-        return " FASTEST";
+        // return " FASTEST";
+        return " 最快";
     case 2:
     case 3:
-        return " FASTER";
+        // return " FASTER";
+        return " 较快";
     case 4:
     case 5:
-        return " FAST";
+        // return " FAST";
+        return " 快";
     case 6:
-        return " NORMAL";
+        return " 普通";
     case 7:
     case 8:
-        return " SLOW";
+        // return " SLOW";
+        return " 慢";
     case 9:
     case 10:
-        return " SLOWER";
+        return " 较慢";
     case 11:
     case 12:
-        return " SLOWEST";
+        return " 最慢";
     default:
         return "";
     }
@@ -175,9 +179,10 @@ void AttachClientHelper() {
 
     // font size (default 0x0B = 11) 0x0C（12）、0x0E（14）
     const uint8_t uFontSize = 0x0C;
-    Patch1(0x00885242 + 1, uFontSize);
-    Patch1(0x008852D3 + 1, uFontSize);
-    Patch1(0x0088538C + 1, uFontSize);
+    Patch1(0x00885243, 0x0C); // 装备属性小题字号
+    Patch1(0x008852D4, 0x0C); // 装备属性明细字号
+    Patch1(0x0088538D, 0x0C); // 装备属性数值字号
+    Patch1(0x0089F3A4, 0x05); // 装备属性小题橙点居中
 
     // CChatHelper::TryChat
     Patch1(0x004AA7EF, 0xEB); // bypass chat cooldown

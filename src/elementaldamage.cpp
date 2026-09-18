@@ -74,16 +74,16 @@ void __fastcall CUIToolTip__SetToolTip_Equip_Basic_hook(CUIToolTip* pThis, void*
     if (!pEquipItem) {
         return;
     }
-    PrintElementDamage(pThis, "POISON DAMAGE :", pEquipItem->nirPoison);   // incRMAS
-    PrintElementDamage(pThis, "ICE DAMAGE :", pEquipItem->nirIce);         // incRMAI
-    PrintElementDamage(pThis, "FIRE DAMAGE :", pEquipItem->nirFire);       // incRMAF
-    PrintElementDamage(pThis, "LIGHTNING DAMAGE :", pEquipItem->nirLight); // incRMAL
-    PrintElementDamage(pThis, "HOLY DAMAGE :", pEquipItem->nirHoly);       // incRMAH
+    PrintElementDamage(pThis, "毒属性伤害 :", pEquipItem->nirPoison);   // incRMAS
+    PrintElementDamage(pThis, "冰属性伤害 :", pEquipItem->nirIce);         // incRMAI
+    PrintElementDamage(pThis, "火属性伤害 :", pEquipItem->nirFire);       // incRMAF
+    PrintElementDamage(pThis, "雷属性伤害 :", pEquipItem->nirLight); // incRMAL
+    PrintElementDamage(pThis, "圣属性伤害 :", pEquipItem->nirHoly);       // incRMAH
 
     // Skip printing nRUC in original code with Patch1(0x008A13DB, 0xEB);
     uint8_t nRUC = pEquipItem->nRUC.Fuse();
     if (nRUC && (pEquipItem->nEnchantCategory & 2) == 0) {
-        ZXString<char> sRUC("NUMBER OF UPGRADES AVAILABLE :");
+        ZXString<char> sRUC("可升级次数 :");
 
         // Remaining upgrade count - we can't cast to ZtlSecure<unsigned char>* here because GW_ItemSlotBase is packed to 1 byte alignment
         nRUC = ZtlSecureFuse<unsigned char>(
