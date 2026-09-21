@@ -38,3 +38,12 @@ inline uint32_t get_int32(Ztl_variant_t& v, uint32_t nDefault) {
 inline int32_t draw_number_by_image(IWzCanvasPtr pCanvas, int32_t nLeft, int32_t nTop, int32_t nNo, IWzPropertyPtr pBase, int32_t nHorzSpace) {
     return reinterpret_cast<int32_t (__cdecl*)(IWzCanvasPtr, int32_t, int32_t, int32_t, IWzPropertyPtr, int32_t)>(0x00965780)(pCanvas, nLeft, nTop, nNo, pBase, nHorzSpace);
 }
+
+inline BSTR get_bstr(Ztl_variant_t& v, wchar_t* wDefault) {
+    Ztl_variant_t vBstr;
+    if (V_VT(&v) == VT_EMPTY || V_VT(&v) == VT_ERROR || FAILED(ZComAPI::ZComVariantChangeType(&vBstr, &v, 0, VT_BSTR))) {
+        return wDefault;
+    } else {
+        return V_BSTR(&vBstr);
+    }
+}

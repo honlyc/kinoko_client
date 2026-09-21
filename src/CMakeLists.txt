@@ -14,6 +14,7 @@ add_library(injector SHARED
         itemicon.cpp
         walker.cpp
         debug.cpp
+        equipSkill_Random.cpp
         V95HyperTeleportRockClient.cpp
 )
 
